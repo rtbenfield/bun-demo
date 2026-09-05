@@ -5,12 +5,12 @@ This app was scaffolded with `remix new`. Use these conventions when continuing 
 ## Commands
 
 ```sh
-npm i
-npm run dev
-npm run hmr
-npm run start
-npm test
-npm run typecheck
+bun install
+bun run dev
+bun run hmr
+bun run start
+bun test
+bun run typecheck
 ```
 
 ## Building Features
@@ -34,6 +34,11 @@ Refer to ./.agents/skills/remix/SKILL.md
 - Add `app/actions/<route-key>/controller.tsx` for nested route maps that need their own actions or middleware.
 - Keep route-owned page modules next to the route that owns them.
 - Move shared UI to `app/ui/`, not `app/actions/`.
+
+## Streaming
+
+- Always stream data where possible. Avoid buffering request or response bodies in memory.
+- Buffer only when the underlying APIs do not support streaming (for example, `Bun.TOML.parse` and `Bun.XML.parse` accept strings only). State the limitation in a comment where the buffering happens.
 
 ## Build-Out Notes
 
