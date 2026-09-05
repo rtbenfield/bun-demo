@@ -7,6 +7,7 @@ import formatConverterController from './actions/format-converter/controller.tsx
 import dnsLookupController from './actions/dns-lookup/controller.tsx'
 import markdownConverterController from './actions/markdown-converter/controller.tsx'
 import colorConverterController from './actions/color-converter/controller.tsx'
+import imageManipulationController from './actions/image-manipulation/controller.tsx'
 import { assets } from './assets.ts'
 import { routes } from './routes.ts'
 
@@ -28,3 +29,4 @@ router.map(routes.formatConverter, formatConverterController)
 router.map(routes.dnsLookup, dnsLookupController)
 router.map(routes.markdownConverter, markdownConverterController)
 router.map(routes.colorConverter, colorConverterController)
+router.map(routes.imageManipulation, imageManipulationController)

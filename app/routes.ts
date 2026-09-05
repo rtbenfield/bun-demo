@@ -7,4 +7,5 @@ export const routes = route({
   colorConverter: form('color-converter'),
   formatConverter: form('format-converter'),
   dnsLookup: form('dns-lookup'),
+  imageManipulation: form('image-manipulation'),
 })
