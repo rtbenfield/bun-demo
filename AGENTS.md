@@ -13,6 +13,11 @@ bun test
 bun run typecheck
 ```
 
+`bun test` is the only supported test runner. Tests import `describe`/`it` from
+`remix/test`, which tsconfig.json aliases to `test/remix-test.ts` (a `bun:test`
+shim). Do not run tests with the `remix test` CLI; it executes on Node and
+fails on modules that touch Bun APIs.
+
 ## Building Features
 
 Refer to ./.agents/skills/remix/SKILL.md

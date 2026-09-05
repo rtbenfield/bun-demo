@@ -8,4 +8,5 @@ export const routes = route({
   formatConverter: form('format-converter'),
   dnsLookup: form('dns-lookup'),
   imageManipulation: form('image-manipulation'),
+  fileArchiver: form('file-archiver'),
 })

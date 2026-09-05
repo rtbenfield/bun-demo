@@ -11,6 +11,9 @@
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "skipLibCheck": true,
+    "paths": {
+      "remix/test": ["./test/remix-test.ts"]
+    },
     "jsx": "react-jsx",
     "jsxImportSource": "remix/ui",
     "noEmit": true
