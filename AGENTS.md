@@ -7,7 +7,6 @@ This app was scaffolded with `remix new`. Use these conventions when continuing 
 ```sh
 bun install
 bun run dev
-bun run hmr
 bun run start
 bun test
 bun run typecheck
@@ -18,9 +17,18 @@ bun run typecheck
 shim). Do not run tests with the `remix test` CLI; it executes on Node and
 fails on modules that touch Bun APIs.
 
+Hot module replacement is not supported. `remix/node-hmr` supervises only
+Node.js processes, and this app depends on Bun APIs. Use `bun run dev` for
+watch-mode restarts.
+
 ## Building Features
 
 Refer to ./.agents/skills/remix/SKILL.md
+
+`.agents/skills/remix/` must be a verbatim copy of the official skill that
+`remix new` generates for the installed `remix` version. Never edit, extend, or
+trim it. When upgrading `remix`, replace the whole directory with the copy from
+a fresh `remix new` scaffold of the same version.
 
 ## Starter Layout
 
