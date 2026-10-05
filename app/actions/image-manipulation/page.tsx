@@ -1,5 +1,5 @@
-import type { Handle } from 'remix/ui'
-import { css } from 'remix/ui'
+import type { Handle } from 'remix/component'
+import { css } from 'remix/component'
 
 import { Document } from '../document.tsx'
 import { FITS, FORMATS, ROTATIONS, type TransformResult, type TransformOptions } from './transform.ts'

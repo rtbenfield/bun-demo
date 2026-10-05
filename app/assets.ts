@@ -1,5 +1,5 @@
 import { createAssetServer } from 'remix/assets'
-import { uiHmr } from 'remix/ui-hmr/assets'
+import { componentHmr } from 'remix/component-hmr/assets'
 
 const rootDir = process.cwd()
 const nodeEnv = process.env.NODE_ENV ?? 'development'
@@ -19,7 +19,7 @@ export const assets = createAssetServer({
   hmr: isHmr
     ? async () => (await import('remix/node-hmr/runtime')).createBrowserHmrChannel()
     : undefined,
-  scripts: { loaders: isHmr ? [uiHmr()] : undefined },
+  scripts: { loaders: isHmr ? [componentHmr()] : undefined },
 })
 
 const entry = 'app/actions/public/entry.ts'

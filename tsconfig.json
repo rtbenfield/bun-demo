@@ -15,7 +15,7 @@
       "remix/test": ["./test/remix-test.ts"]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "remix/ui",
+    "jsxImportSource": "remix/component",
     "noEmit": true
   },
   "exclude": ["dist"]
