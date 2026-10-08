@@ -10,10 +10,12 @@ import colorConverterController from './actions/color-converter/controller.tsx'
 import imageManipulationController from './actions/image-manipulation/controller.tsx'
 import fileArchiverController from './actions/file-archiver/controller.tsx'
 import { assets } from './assets.ts'
+import { requestLogger } from './request-logger.ts'
 import { routes } from './routes.ts'
 
+const requestLoggerMiddleware = requestLogger()
 const renderMiddleware = render({ assets })
-type AppContext = MiddlewareContext<[typeof renderMiddleware]>
+type AppContext = MiddlewareContext<[typeof requestLoggerMiddleware, typeof renderMiddleware]>
 
 declare module 'remix/router' {
   interface RouterTypes {
@@ -22,7 +24,11 @@ declare module 'remix/router' {
 }
 
 export const router = createRouter<AppContext>({
-  middleware: [staticFiles('./public', { index: false }), renderMiddleware],
+  middleware: [
+    requestLoggerMiddleware,
+    staticFiles('./public', { index: false }),
+    renderMiddleware,
+  ],
 })
 
 router.map(routes, controller)
