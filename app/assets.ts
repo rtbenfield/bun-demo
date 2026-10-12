@@ -1,6 +1,9 @@
+import * as path from 'node:path'
+
 import { createAssetServer } from 'remix/assets'
 
-const rootDir = process.cwd()
+// Anchored to this file, not the working directory, so the deployed bundle resolves its own tree.
+export const rootDir = path.resolve(import.meta.dirname, '..')
 const nodeEnv = process.env.NODE_ENV ?? 'development'
 const isDevelopment = nodeEnv === 'development'
 

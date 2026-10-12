@@ -10,6 +10,8 @@ bun run dev
 bun run start
 bun test
 bun run typecheck
+bun run build   # assemble dist/ for Prisma Compute
+bun run deploy  # build, then deploy module.ts to the linked Prisma project
 ```
 
 `bun test` is the only supported test runner. Tests import `describe`/`it` from

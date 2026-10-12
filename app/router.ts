@@ -1,3 +1,5 @@
+import * as path from 'node:path'
+
 import { createRouter, type MiddlewareContext } from 'remix/router'
 import { render } from 'remix/middleware/render'
 import { staticFiles } from 'remix/middleware/static'
@@ -9,7 +11,7 @@ import markdownConverterController from './actions/markdown-converter/controller
 import colorConverterController from './actions/color-converter/controller.tsx'
 import imageManipulationController from './actions/image-manipulation/controller.tsx'
 import fileArchiverController from './actions/file-archiver/controller.tsx'
-import { assets } from './assets.ts'
+import { assets, rootDir } from './assets.ts'
 import { requestLogger } from './request-logger.ts'
 import { routes } from './routes.ts'
 
@@ -26,7 +28,7 @@ declare module 'remix/router' {
 export const router = createRouter<AppContext>({
   middleware: [
     requestLoggerMiddleware,
-    staticFiles('./public', { index: false }),
+    staticFiles(path.join(rootDir, 'public'), { index: false }),
     renderMiddleware,
   ],
 })

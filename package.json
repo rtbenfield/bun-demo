@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "bun --watch server.ts",
     "start": "NODE_ENV=production bun server.ts",
+    "build": "rm -rf dist && mkdir dist && cp -R app public boot.ts server.ts tsconfig.json package.json bun.lock dist/ && find dist/app -name '*.test.*' -delete && bun install --cwd dist --production --frozen-lockfile",
+    "deploy": "bun run build && bun node_modules/.bin/prisma deploy module.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit"
   },
@@ -15,8 +17,11 @@
     "remix": "^3.0.0"
   },
   "devDependencies": {
+    "@prisma/composer": "0.28.0",
+    "@prisma/composer-prisma-cloud": "0.28.0",
     "@types/bun": "^1.4.1",
     "playwright": "^1.63.0",
+    "prisma": "8.0.0-rc.21",
     "typescript": "^7.0.2"
   }
 }
