@@ -29,10 +29,30 @@ export function Document(handle: Handle<DocumentProps>) {
           ))}
           <script type="module" src={entryHref}></script>
         </head>
-        <body mix={css({ margin: 0 })}>{children}</body>
+        <body mix={css({ margin: 0 })}>
+          {children}
+          <RuntimeFooter />
+        </body>
       </html>
     )
   }
+}
+
+/** Identifies the Bun build serving the page, so a deployed release can be matched to its runtime. */
+function RuntimeFooter() {
+  return () => (
+    <footer
+      mix={css({
+        padding: '16px 24px',
+        fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
+        fontSize: '12px',
+        textAlign: 'center',
+        color: '#94989c',
+      })}
+    >
+      Bun {Bun.version} · revision {Bun.revision}
+    </footer>
+  )
 }
 
 function readAppDisplayName(value: string): string {
