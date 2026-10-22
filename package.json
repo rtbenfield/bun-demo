@@ -19,8 +19,8 @@
   "devDependencies": {
     "@prisma/composer": "0.28.0",
     "@prisma/composer-prisma-cloud": "0.28.0",
-    "@types/bun": "^1.4.1",
-    "playwright": "^1.63.0",
+    "@types/bun": "^1.4.3",
+    "playwright": "^1.64.1",
     "prisma": "8.0.0-rc.21",
     "typescript": "^7.0.2"
   }
